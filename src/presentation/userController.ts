@@ -33,10 +33,20 @@ class UserController {
 
     async loginUser(req: Request, res: Response): Promise<Response> {
         try {
+            const schema = Joi.object({
+                email: Joi.string().email().required().min(1),
+                password: Joi.string().required().min(1)
+            });
+
+            const { error } = schema.validate(req.body);
+            if (error) {
+                return res.status(400).json({ message: error.details[0].message });
+            }
+
             const { email, password } = req.body;
             const user = await this.service.authenticateUser(email, password);
             if (user) {
-                return res.status(200).json(user);
+                return res.status(200).json({ message: 'Authentication successful', token: user.token, uuid: user.user.uuid, name: user.user.name, email: user.user.email });
             }
             return res.status(401).json({ message: 'Authentication failed' });
         } catch (error) {
