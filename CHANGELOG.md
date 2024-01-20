@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.5 (2024-01-20)
+
+
+### Bug Fixes
+
+* **ci:** .env node ([#10](https://github.com/habitanto-reto/auth-service/issues/10)) ([4edc2d7](https://github.com/habitanto-reto/auth-service/commit/4edc2d76f2fa4f1d97d0aca2d7179dbb350350b3))
+
+### 0.0.4 (2024-01-20)
+
 ### 0.0.3 (2024-01-20)
 
 
