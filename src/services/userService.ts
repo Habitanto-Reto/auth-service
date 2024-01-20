@@ -28,6 +28,10 @@ class UserService {
     async authenticateUser(email: string, password: string): Promise<{ user: IUser, token: string } | null> {
         const user = await this.repository.findUserByEmail(email);
 
+        if (!user) {
+            throw new Error('User does not exist');
+        }
+
         const jwtSecret = process.env.JWT_SECRET;
         if (!jwtSecret) {
             throw new Error('JWT_SECRET is not defined');
@@ -40,9 +44,8 @@ class UserService {
                 const token = jwt.sign(
                     { id: user.uuid, email: user.email, username: user.name },
                     jwtSecret,
-                    { expiresIn: '5h' }
+                    { expiresIn: '5h', algorithm: 'HS256' }
                 );
-
                 return { user, token };
             }
         }
