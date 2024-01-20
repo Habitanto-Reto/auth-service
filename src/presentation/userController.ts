@@ -49,7 +49,7 @@ class UserController {
             const { userId } = req.params;
             const user = await this.service.getUserProfile(userId);
             if (user) {
-                return res.status(200).json(user);
+                return res.status(200).json({ uuid: user.uuid, name: user.name, email: user.email });
             }
             return res.status(404).json({ message: 'User not found' });
         } catch (error) {
