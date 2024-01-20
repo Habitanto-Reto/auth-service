@@ -7,7 +7,7 @@ import {Database} from "./domain/entities/database";
 
 export class Server {
     private app: express.Express;
-    private port: number | string;
+    private readonly port: number | string;
     private database: Database;
 
     constructor(port: number | string, database: Database) {

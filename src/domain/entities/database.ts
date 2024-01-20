@@ -11,6 +11,6 @@ export class Database {
         console.log('🛢 Conectando a MongoDB🍃...');
         return mongoose.connect(this.mongoUri)
             .then(() => console.log('Conexión a MongoDB🍃 establecida 🟢'))
-            .catch(err => console.error('Error conectando a MongoDB ⛔', err));
+            .catch(err => console.error('Error conectando a MongoDB ⛔', err, 'URI: ', this.mongoUri));
     }
 }
