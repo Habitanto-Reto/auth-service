@@ -55,6 +55,10 @@ class UserService {
     async getUserProfile(uuid: string): Promise<IUser | null> {
         return this.repository.getUserById(uuid);
     }
+
+    async getUsers(): Promise<IUser[]> {
+        return this.repository.getUsers();
+    }
 }
 
 export default UserService;

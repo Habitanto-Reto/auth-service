@@ -14,6 +14,10 @@ class AuthDatasourceImpl extends AuthDatasource {
     async getUserById(uuid: string): Promise<IUser | null> {
         return User.findOne({uuid});
     }
+
+    async getUsers(): Promise<IUser[]> {
+        return User.find({});
+    }
 }
 
 export default AuthDatasourceImpl;

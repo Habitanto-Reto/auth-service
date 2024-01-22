@@ -66,6 +66,15 @@ class UserController {
             return res.status(500).json({ message: (error as Error).message });
         }
     }
+
+    async getUsers(req: Request, res: Response): Promise<Response> {
+        try {
+            const users = await this.service.getUsers();
+            return res.status(200).json( users.map( user => ({ uuid: user.uuid, name: user.name, email: user.email })));
+        } catch (error) {
+            return res.status(500).json({ message: (error as Error).message });
+        }
+    }
 }
 
 export default UserController;
