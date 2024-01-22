@@ -6,4 +6,6 @@ export abstract class AuthRepository {
     abstract findUserByEmail(email: string): Promise<IUser | null>;
 
     abstract getUserById(uuid: string): Promise<IUser | null>;
+
+    abstract getUsers(): Promise<IUser[]>;
 }
