@@ -24,6 +24,7 @@ export class Server {
         this.app.post('/register', (req, res) => controller.registerUser(req, res));
         this.app.post('/login', (req, res) => controller.loginUser(req, res));
         this.app.get('/profile/:userId', (req, res) => controller.viewProfile(req, res));
+        this.app.get('/users', (req, res) => controller.getUsers(req, res));
     }
 
     async start() {

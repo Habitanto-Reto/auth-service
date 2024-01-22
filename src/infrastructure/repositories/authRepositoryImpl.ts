@@ -21,6 +21,10 @@ class AuthRepositoryImpl extends AuthRepository {
     async getUserById(uuid: string): Promise<IUser | null> {
         return this.dataSource.getUserById(uuid);
     }
+
+    async getUsers(): Promise<IUser[]> {
+        return this.dataSource.getUsers();
+    }
 }
 
 export default AuthRepositoryImpl;
